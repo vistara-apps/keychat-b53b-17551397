@@ -10,14 +10,14 @@
     "subtitle": "Built with Zara",
     "description": "KeyChat is a Base Mini App built with Zara.",
     "iconUrl": "https://0co.to/images/zara-2.png",
-    "homeUrl": "https://b53bcddc-f94e-4eff-8181-dcee1f9ce704.vistara.dev",
-    "splashImageUrl": "https://dummyimage.com/200x200/0a0b0d/ffffff.png&text=Splash",
+    "homeUrl": "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app",
+    "splashImageUrl": "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app/splash.png",
     "splashBackgroundColor": "#000000",
-    "heroImageUrl": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Hero",
+    "heroImageUrl": "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app/image.png",
     "tagline": "KeyChat",
     "screenshotUrls": [
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot1",
-      "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=Shot2"
+      "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app/screenshot.png",
+      "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app/screenshot.png"
     ],
     "primaryCategory": "social",
     "tags": [
@@ -25,6 +25,6 @@
       "miniapp",
       "onchainkit"
     ],
-    "webhookUrl": "https://b53bcddc-f94e-4eff-8181-dcee1f9ce704.vistara.dev/api/webhook"
+    "webhookUrl": "https://b53bcddcf94e4eff8181dcee1f9ce704-wfjx-izvwsl27k-vistara.vercel.app/api/webhook"
   }
 }
