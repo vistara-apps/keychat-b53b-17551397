@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -75,26 +74,24 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-bg text-text">
-      <div className="w-full max-w-screen-lg mx-auto px-xl py-lg">
-        <header className="flex justify-between items-center mb-xl h-16">
-          <div className="flex items-center space-x-lg">
-            <div className="flex items-center space-x-md">
-              <div className="p-sm bg-primary rounded-md">
-                <Key className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-h3 font-bold">KeyChat</h1>
-                <p className="text-small text-muted">Own Your Community Access</p>
-              </div>
+      <div className="w-full max-w-screen-lg mx-auto px-4 sm:px-6 md:px-xl py-4 sm:py-lg">
+        <header className="flex flex-wrap sm:flex-nowrap justify-between items-center mb-6 sm:mb-xl gap-4">
+          <div className="flex items-center space-x-md">
+            <div className="p-sm bg-primary rounded-md">
+              <Key className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-h3 font-bold">KeyChat</h1>
+              <p className="text-small text-muted">Own Your Community Access</p>
             </div>
           </div>
           
-          <div className="flex items-center space-x-md">
+          <div className="flex items-center space-x-md ml-auto sm:ml-0">
             {saveFrameButton}
             <Wallet className="z-10">
               <ConnectWallet>
                 <Avatar className="h-8 w-8" />
-                <Name className="text-inherit" />
+                <Name className="hidden sm:inline text-inherit" />
               </ConnectWallet>
               <WalletDropdown>
                 <Identity className="px-lg pt-md pb-sm" hasCopyAddressOnClick>
@@ -111,21 +108,22 @@ export default function App() {
 
         <main className="flex-1">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-3 mb-xl">
+            <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-xl">
               <TabsTrigger 
                 value="marketplace" 
                 isActive={activeTab === "marketplace"}
                 onClick={() => setActiveTab("marketplace")}
-                className="flex items-center space-x-sm"
+                className="flex items-center justify-center space-x-sm"
               >
                 <Home className="h-4 w-4" />
-                <span>Marketplace</span>
+                <span className="hidden sm:inline">Marketplace</span>
+                <span className="sm:hidden">Home</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="creator" 
                 isActive={activeTab === "creator"}
                 onClick={() => setActiveTab("creator")}
-                className="flex items-center space-x-sm"
+                className="flex items-center justify-center space-x-sm"
               >
                 <Users className="h-4 w-4" />
                 <span>Creator</span>
@@ -134,7 +132,7 @@ export default function App() {
                 value="profile" 
                 isActive={activeTab === "profile"}
                 onClick={() => setActiveTab("profile")}
-                className="flex items-center space-x-sm"
+                className="flex items-center justify-center space-x-sm"
               >
                 <User className="h-4 w-4" />
                 <span>Profile</span>
@@ -155,7 +153,7 @@ export default function App() {
           </Tabs>
         </main>
 
-        <footer className="mt-xl pt-lg flex justify-center border-t border-border">
+        <footer className="mt-8 sm:mt-xl pt-4 sm:pt-lg flex justify-center border-t border-border">
           <Button
             variant="ghost"
             size="sm"

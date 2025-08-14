@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import { CommunityCard } from "./community-card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs";
 import { Search, Filter, TrendingUp } from "lucide-react";
 
 export function Marketplace() {
@@ -83,32 +82,39 @@ export function Marketplace() {
   );
 
   return (
-    <div className="container space-y-xl">
+    <div className="container space-y-6 sm:space-y-xl">
       <div className="text-center space-y-md">
-        <h1 className="text-display">Discover Communities</h1>
+        <h1 className="text-h1 sm:text-display">Discover Communities</h1>
         <p className="text-body text-muted max-w-2xl mx-auto">
           Join exclusive creator communities with tokenized access keys. Own your membership, share in the rewards.
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-md">
+      <div className="flex flex-col sm:flex-row gap-md">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted h-4 w-4" />
+          <label htmlFor="search-communities" className="sr-only">Search communities</label>
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted h-4 w-4" aria-hidden="true" />
           <Input
-            placeholder="Search communities, creators, or topics..."
+            id="search-communities"
+            placeholder="Search communities..."
             className="pl-10"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search communities"
           />
         </div>
-        <Button variant="outline" className="flex items-center">
-          <Filter className="h-4 w-4 mr-sm" />
-          Filters
+        <Button 
+          variant="outline" 
+          className="flex items-center justify-center"
+          aria-label="Filter communities"
+        >
+          <Filter className="h-4 w-4 mr-sm" aria-hidden="true" />
+          <span>Filters</span>
         </Button>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4">
           <TabsTrigger 
             value="all" 
             isActive={activeTab === "all"}
@@ -122,7 +128,8 @@ export function Marketplace() {
             onClick={() => setActiveTab("trending")}
           >
             <TrendingUp className="h-4 w-4 mr-1" />
-            Trending
+            <span className="hidden sm:inline">Trending</span>
+            <span className="sm:hidden">Hot</span>
           </TabsTrigger>
           <TabsTrigger 
             value="new" 
@@ -136,12 +143,13 @@ export function Marketplace() {
             isActive={activeTab === "affordable"}
             onClick={() => setActiveTab("affordable")}
           >
-            Affordable
+            <span className="hidden sm:inline">Affordable</span>
+            <span className="sm:hidden">$ Low</span>
           </TabsTrigger>
         </TabsList>
         
         <TabsContent value="all" isActive={activeTab === "all"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-xl">
             {filteredCommunities.map((community) => (
               <CommunityCard
                 key={community.communityId}
@@ -153,7 +161,7 @@ export function Marketplace() {
         </TabsContent>
         
         <TabsContent value="trending" isActive={activeTab === "trending"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-xl">
             {filteredCommunities
               .sort((a, b) => b.currentSupply - a.currentSupply)
               .map((community) => (
@@ -167,7 +175,7 @@ export function Marketplace() {
         </TabsContent>
         
         <TabsContent value="new" isActive={activeTab === "new"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-xl">
             {filteredCommunities
               .sort((a, b) => a.currentSupply - b.currentSupply)
               .map((community) => (
@@ -181,7 +189,7 @@ export function Marketplace() {
         </TabsContent>
         
         <TabsContent value="affordable" isActive={activeTab === "affordable"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-xl">
             {filteredCommunities
               .sort((a, b) => a.basePrice - b.basePrice)
               .map((community) => (
@@ -196,7 +204,7 @@ export function Marketplace() {
       </Tabs>
 
       {filteredCommunities.length === 0 && (
-        <div className="text-center py-xl">
+        <div className="text-center py-6 sm:py-xl">
           <p className="text-body text-muted">No communities found matching your search.</p>
         </div>
       )}
