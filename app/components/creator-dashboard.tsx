@@ -17,7 +17,15 @@ interface CreatorDashboardProps {
   onCreateCommunity: () => void;
 }
 
-export function CreatorDashboard({ stats, onCreateCommunity }: CreatorDashboardProps) {
+export function CreatorDashboard({ 
+  stats = {
+    totalCommunities: 2,
+    totalRevenue: 1250.75,
+    totalMembers: 177,
+    avgKeyPrice: 22.50
+  }, 
+  onCreateCommunity = () => console.log("Create community clicked")
+}: Partial<CreatorDashboardProps>) {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">

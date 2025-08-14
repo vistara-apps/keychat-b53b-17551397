@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,37 +18,61 @@
   }
   
   body {
-    @apply bg-bg text-text font-body;
+    @apply bg-bg text-text font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-h1 leading-tight;
+  }
+
+  h2 {
+    @apply text-h2 leading-tight;
+  }
+
+  h3 {
+    @apply text-h3 leading-tight;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-white px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1) shadow-sm hover:shadow-card;
+    @apply bg-primary hover:bg-primary/90 text-white px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1) shadow-sm hover:shadow-card font-medium;
   }
   
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary/90 text-white px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1);
+    @apply bg-secondary hover:bg-secondary/90 text-white px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1) font-medium;
   }
   
   .btn-outline {
-    @apply border border-border hover:bg-bg/50 text-text px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1);
+    @apply border border-border hover:bg-bg/50 text-text px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1) font-medium;
   }
   
   .btn-ghost {
-    @apply hover:bg-bg/80 text-text px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1);
+    @apply hover:bg-bg/80 text-text px-lg py-md rounded-md transition-all duration-150 cubic-bezier(0.22,1,0.36,1) font-medium;
   }
   
   .card {
-    @apply bg-surface border border-border rounded-lg p-xl shadow-card;
+    @apply bg-surface border border-border rounded-lg p-xl shadow-card transition-all duration-150 hover:shadow-overlay;
   }
   
   .input-field {
-    @apply bg-input border border-border rounded-md px-md py-md text-text placeholder:text-muted focus:border-ring focus:outline-none transition-all duration-150;
+    @apply bg-input border border-border rounded-md px-md py-md text-text placeholder:text-muted focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring/20 transition-all duration-150;
   }
   
   .container {
-    @apply max-w-screen-lg px-xl mx-auto;
+    @apply max-w-screen-lg px-4 sm:px-6 md:px-xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-h2 font-bold mb-md;
+  }
+
+  .section-description {
+    @apply text-body text-muted mb-xl max-w-2xl;
   }
 }
 
